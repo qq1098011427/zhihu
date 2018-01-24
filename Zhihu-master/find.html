@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>yxy知乎</title>
+    <link rel="stylesheet" type="text/css" href="index_files/reset.css">
+    <script src="index_files/jquery-3.js"></script>
+    <style type="text/css">
+    #head{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 45px;
+        width: 100%;
+        z-index: 20;
+        background: #0767c8;
+        background:linear-gradient(to bottom,#086ed5, #055db5);
+        border-bottom: 1px solid #044e97;
+        box-shadow: 0 1px 2px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.15);
+    }   
+    .w{
+        width: 960px;
+        margin: 0 auto;
+        clear: both;
+        height: inherit;
+    }
+    .clearfix::after {
+        clear: both;
+    }
+    .clearfix::before, .clearfix::after{
+        content: "";
+        display: table;
+    }
+    .h-left{
+        float: left;
+        width: 450px;
+        padding: 0px 0 1px 0;        
+    }
+    .h-left .h-title{
+        float: left;
+        width: 70px;
+        font-size: 32px;
+        color: #fff;
+    }
+    .h-left .search{
+        float: left;
+        width: 296px;
+        height: 28px;
+        border-radius: 5px 0 0 5px;
+        padding: 2px 0 2px 10px;
+        margin-top: 7px;
+    }
+     .h-left .btnsearch{
+        float: left;
+        height: 36px;
+        width: 38px;
+        background: #0e78e7;
+        border-radius: 0 5px 5px 0;
+        border: 1px solid  #045bb2;  
+        margin-top: 7px;
+        cursor: pointer;
+     }
+
+     .h-middle {
+        float: left;
+     }
+     .h-middle .nav{
+        margin:0 0 0 12px;
+     }
+     .h-middle .nav li{
+        float: left;
+        height: 45px;
+        line-height: 45px;
+        padding: 0 10px;
+        cursor: pointer;
+        color: #eee;
+     }
+      .h-middle .nav li:hover{
+        background: #0767c8;
+        opacity: 0.7;
+      }
+      .h-right{
+        padding: 7px 0 0 1px;
+      }
+      .h-right .btnAsk{
+        background: #0e78e7;
+        margin-left: 100px;
+        width: 60px;
+        height: 32px;
+        color: #fff;
+        border: 1px solid  #045bb2;  
+        border-radius: 5px;
+      }
+      .h-right .h-reg{
+        margin-left: 20px;
+        color: #eee;
+        padding: 0 3px 0 0;
+        cursor: pointer;
+      }
+       .h-right .h-login{
+        margin-left: 20px;
+        color: #eee;
+        cursor: pointer;
+      }
+      .h-right a:hover{
+        color: #fff;
+      }
+      #content{
+        margin-top: 80px;
+      }
+      .c-left{
+        width: 634px;
+        float: left;
+
+        margin-right: 30px;
+      }
+       .c-daliy-list h2 a,.c-month-list h2 a{
+        color: #259;
+        font-weight: 700;
+        font-size: 14px;
+       }
+      .c-recommend-list{
+        float: left;
+        width: 634px;
+      }
+      .c-recommend-title{
+        font-size: 13px;
+      }
+      .c-recommend-title a{
+        float: right;  
+      }
+      .c-recommend-list h2{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        
+       }
+       .c-recommend-list a{
+        color: #259;
+        font-weight: 700;
+        font-size: 14px;  
+       }
+
+      .c-recommend-list{
+        margin-top: 10px;
+        border-top: 1px solid #ccc;
+      }
+      .crl-author,.crl-content{
+        font-weight: 800;
+      }
+      .crl-author span,.crl-content span,.crl-content2 span{
+        font-weight: 400;
+        color: #666;
+        font-size: 13px;
+      }
+      .crl-left{
+        float: left;
+      }
+      .img-m{
+        width: 40px;
+        height: 40px;
+      }
+      .crl-right{
+        margin-left: 48px;
+      }
+      .crl-author{
+        margin-bottom: 10px;
+      }
+
+     .c-recommend-list .crl-bq{
+        float: right;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 13px;
+        color: #999;
+     }
+
+
+/*标签页CSS*/
+.tabs 
+{   
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.tabs ul li
+{
+    float: left;
+    line-height: 30px;
+    margin: 0;
+    padding: 2px 15px 0 15px;
+    margin-right: 10px;
+}
+.tab-nav{
+     cursor:pointer;
+     background: white;
+     position: relative;
+     margin-bottom: -1px;
+}
+.tab-nav a{
+    color:#666;
+    text-decoration:none;
+    font-size: 12px;
+}
+
+.tabs li:hover{
+     background: #e4e4e4;
+     text-decoration:none;
+}
+.tab-nav-action{
+    background: #fff !important;
+    cursor:pointer;
+    border: 1px solid #B4C9C6;
+    border-bottom-color: transparent;
+}
+.tab-nav-action a{
+    text-decoration:none;
+    font-size: 12px;
+}
+.tabs-body
+{
+    float: left;
+    padding: 5px 0 0;
+    width: 100%;
+}
+/*标签页CSS结束*/
+
+.crl-content img,.crl-content2 img{
+    float: left;
+    margin-right: 15px;
+}
+.crl-cc{
+    line-height: 1.7
+}
+.crl-hidden ,.crl-hidden2{
+    display: none;
+}
+
+.crl-footer{
+    margin: 10px 0;
+}
+.crl-footer a{
+    color: #999;
+}
+.crl-footer a:hover{
+    color: #259;
+}
+.cf-icon1{
+    display: inline-block;
+    line-height: 10px;
+    vertical-align: 0;
+    background-image: url(image/3.png);
+    background-repeat: no-repeat;
+    margin-right: 5px;
+    width: 8px;
+    height: 9px;
+    background-position: -97px -23px;
+}
+.cf-icon2{
+    display: inline-block;
+    line-height: 10px;
+    vertical-align: 0;
+    background-image: url(image/3.png);
+    background-repeat: no-repeat;
+    margin-right: 5px;
+    width: 9px;
+    height: 10px;
+    background-position: -28px -22px;
+}
+.cf-icon3{
+    display: inline-block;
+    line-height: 10px;
+    vertical-align: 0;
+    background-image: url(image/3.png);
+    background-repeat: no-repeat;
+    margin-right: 5px;
+    width: 8px;
+    height: 9px;
+    background-position: -135px -22px;
+}
+#hiddenC,#hiddenC2{
+    display: none;
+    float: right;
+    padding: 1px 6px 0
+    margin: 0;
+    border: 0;
+    outline: 0;
+}
+
+.extra{
+    display: block;
+    font-size: 13px;
+    margin: 20px 0;
+    padding: 5px 1px;
+    line-height: 20px;
+    color: #666 !important;
+    text-shadow: 0 1px 0 #fff;
+    background: #f1f1f2;
+    background: -webkit-linear-gradient(top,#f8f8f9,#e6e6e8);
+    background: linear-gradient(to bottom,#f8f8f9,#e6e6e8);
+    border: 1px solid #bbb;
+    box-shadow: 0 1px 0 #fff inset,0 1px 0 rgba(0,0,0,.1);
+    text-align: center;
+    cursor: pointer;
+}
+
+/*右区域*/
+.c-right{
+    width: 268px;
+    float: left;
+}
+.r-and{
+    border:1px solid #e4e4e4;
+}
+.l-and{
+    border:1px solid #e4e4e4;
+    display: none;
+}
+.rl-title h1,.rl-title h2{
+    text-align: center;
+}
+.rl-title h1{
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 700;
+    padding-top: 10px;
+    color: #787878;
+}
+.rl-title h2{
+    font-size: 14px;
+    font-weight: 400;
+    color: #787878;
+}
+.f-input1{
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.f-input1 input,.f-input2 input,.f-input3 input{
+    padding: 15px 8px;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    height: 48px;
+    line-height: 18px;
+    box-sizing: border-box;
+
+}
+.f-input2,.f-input3{
+   border-bottom: 1px solid #eee;  
+}
+.f-input1 input::placeholder, .f-input2 input::placeholder, .f-input3 input::placeholder{
+    line-height: 18px;
+    color: #ccc;
+    -webkit-text-fill-color: #ccc;
+    opacity: 1;
+    font-size: 14px;
+}
+.f-input3{
+    position: relative;
+}
+.icps{
+    background-image: url(image/bq2.png);
+    background-repeat: no-repeat;
+    background-size: 108px 93px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: auto;
+    border: solid #fff;
+    border-top-width: medium;
+    border-width: 17px 8px 17px 0;
+    cursor: pointer;
+    background-position: -41px -25px;
+    width: 21px;
+    height: 13px;
+}
+
+.icps-hidden{
+    background-image: url(image/bq2.png);
+    background-repeat: no-repeat;
+    background-size: 108px 93px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: auto;
+    border: solid #fff;
+    border-top-width: medium;
+    border-width: 17px 8px 17px 0;
+    cursor: pointer;
+    background-position: -1px -41px;
+    width: 21px;
+    height: 13px;
+}
+.f-footer{
+    padding: 10px 8px;
+
+}
+.f-reg{
+    padding:6px 0;
+    border-radius: 3px;
+    width: 100%;
+    color: #fff;
+    background: linear-gradient(to bottom,#1d7fe2,#0865c2);
+    border: 1px solid #0D6EB8;
+    box-shadow: 0 1px 0 rgba(255,255,255,.2) inset,0 1px 0 rgba(0,0,0,.2);
+}
+.f-toggle{
+    padding:0 6px;
+    color: #787878;
+    font-size: 14px;
+    line-height: 54px;
+}
+.f-toggle button{
+    border: 0;
+    outline: 0;
+    background: #fff;
+    color: #787878;
+    cursor: pointer;
+}
+#r-and-login{
+    cursor: pointer;
+}
+.downloadApp{
+    position: relative;
+    margin-top: 20px;
+    border: 1px solid #e4e4e4;
+    text-align: center;
+
+
+}
+.downloadApp button{
+    border: 0;
+    outline: 0;
+    background: #fff;
+    color: #0f88eb;
+    border-radius: 3px;
+    line-height: 41px;
+    cursor: pointer;
+}
+
+.icon-erwm{
+    background-image: url(image/bq3.png);
+    background-repeat: no-repeat;
+    background-position: -54px -50px;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.hot-yz{
+    margin-top: 20px;
+    border-top: 1px solid #e4e4e4;
+}
+.hot-yz a{
+    color: #259;
+}
+.yz-title a{
+    float: right;
+    color: #999;
+}
+.yz-title h3{
+    color: #666;
+    outline: 0;
+}
+.yz-list img{
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    float: left;
+    margin-right: 12px;
+}
+.yz-bq{
+    float: right;
+    color: #999;
+}
+.meta{
+    color: #999;
+}
+.yz-list >li{
+    border-bottom: 1px solid #e4e4e4;
+    padding-bottom: 13px; 
+}
+.yz-list >li +li{
+    padding-top: 13px; 
+}
+
+.connectus{
+    color: #999;
+}
+
+
+/*意见反馈*/
+.icon-hover{
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.15);
+    background: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.icon-hover:hover .icon-advice{
+    background-image: url(image/advice2.png);
+}
+.icon-advice{
+    display: inline-block;
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+    background-image: url(image/advice1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/*弹出对话框*/
+.dialog{
+    position: absolute;
+    top: 100px;
+    left: 400px;
+    width: 568px;
+    height: 354px;
+    z-index: 10000;
+    display: none;
+}
+.dialog>button{
+    float: right;
+    margin-right:-30px;
+    padding: 10px 10px 10px 12px;
+    border: none;
+    background: transparent;
+}
+.d-content{
+    border: 1px solid #e4e4e4;
+    background: #fff;
+}
+.d-content h2{
+    padding: 20px;
+    text-align: center;
+}
+.d-content textarea{
+    width: 90%;
+    margin: 0 20px;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    line-height: 20px;
+    outline: none;
+}
+.d-content button{
+    width: 100px;
+    padding: 8px 0;
+    margin: 20px 0 20px 220px;
+}
+.screen{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+</style>
+
+
+</head>
+
+<body>
+    <header>
+        <div id="head">
+            <div class="w">
+                <div class="h-left clearfix">
+                    <a href="#" class="h-title">知乎</a>
+                    <form action="#">
+                        <input class="search" placeholder="搜索你感兴趣的内容..." type="text">
+                        <button class="btnsearch"></button>
+                    </form>
+                </div>
+
+                <div class="h-middle clearfix">
+                    <ul class="nav">
+                        <li><a href="index.html">首页</a></li>
+                        <li>话题</li>
+                        <li>发现</li>
+                    </ul>
+                </div>
+
+                <div class="h-right clearfix">
+                    <button class="btnAsk">提问</button>
+                    <a class="h-reg"><span></span>注册知乎</a>
+                    <a class="h-login">登陆</a>
+                </div>
+            </div>
+        </div>    
+    </header>
+
+    <div id="content">
+        <div class="w">
+            <div class="c-left"><!-- 内容左区域 -->
+                <div class="c-recommend">
+                    <div class="c-recommend-title">
+                        <i></i>
+                        <span>编辑推荐</span>
+                        <a class="crt-r" href="#">更多推荐&gt;&gt;</a>
+                    </div>
+                    <div class="c-recommend-list">
+                        <h2><a href="#">网络司法拍卖法律问题研究</a> </h2>
+                            <div class="crl-left">      
+                                  <a href=""><img src="index_files/1.jpg" class="img-m"></a>
+                            </div>
+                            <div class="crl-right">
+                                <div class="crl-author">
+                                    王俊伟律师,<span>不要打官司才想起我</span>
+                                </div>
+                                <div class="crl-content">
+                                    网络司法拍卖法律问题研究<span class="crl-cc">王俊伟 上海欧泽律师事务所摘要本文将以具有代表性的淘宝网和上海地区的公拍网为例，结合其他地区网络司法拍卖的实务经验，简要分析司法拍卖互联网化的必然性、发展历程、两种主要模式的利弊分析、网络法院拍卖活动接地气的规定以… </span>
+                                </div>
+                            </div>
+                     </div>
+
+                     <div class="c-recommend-list">
+                            <span class="crl-bq">问答</span>
+                            <h2><a href="#">如何解析三次曲线的参数？</a> </h2>
+                     </div>
+
+                     <div class="c-recommend-list">
+                            <span class="crl-bq">文章</span>
+                            <h2><a href="#">我们看不懂的名画, 到底好在哪里？为什么那么贵？</a> </h2>
+                     </div>
+
+                     <div class="c-recommend-list">
+                            <span class="crl-bq">文章</span>
+                            <h2><a href="#">关于足篮球谁是中国最一运动的争论，是从2005年开始的</a> </h2>
+                     </div>
+
+                     <div class="c-recommend-list">
+                            <span class="crl-bq">识装</span>
+                            <h2><a href="#">当于正抛弃“于妈色”选择高级灰，《延禧攻略》能否与《如懿传》一战？</a> </h2>
+                     </div>
+                </div>
+               <!--  标签页 -->
+                <div class="tabs">
+                    <ul id="tabs">
+                        <li class="tab-nav-action"><a>今日最热</a></li>
+                        <li class="tab-nav"><a>本月最热</a></li>
+                    </ul>
+                </div>
+                <div id="tabs-body" class="tabs-body">
+                    <div style="display:block">
+                        <div class="c-daliy">
+                    
+                                    <div class="c-daliy-list">
+                                        <h2><a href="#">只有历史本科的威腾是怎样进入普林斯顿读数学 Phd 的？</a></h2>
+                                            <div class="crl-left">      
+                                                 <button style="color: #698ebf;background: ##eff6fa">249</button>
+                                            </div>
+                                            <div class="crl-right">
+                                                <div class="crl-author">
+                                                    Bamfwan,<span>咸鱼一条</span>
+                                                </div>
+                                                <div class="crl-hidden">
+                                                    左边背手的是业务大佬，不一定是大主任<br>右边坐着的是行政大佬，技术不一定最高<br>患者左边的两个是青年才俊，科室中坚力量<br>旁边两个拿本子的是刚来的小大夫，且一公一母<br>背对大家的穿短大衣的，是行政大佬的研究生<br><br>并且，业务大佬和青年才俊，他们仨里面穿刷手服，妥妥的一线，死磕到底<br>业务大佬衣着穿着整齐，两个才俊没系扣子，可能是刚下台披上白服就过来了<br>业务大佬倒背着手，一副看穿人世的超然，不苟言笑，眼神给予礼节性肯定<br>行政大佬打领带，看那指点江山的架势~<br>行政大佬胸牌照片部分是绿的，不排除反光显得是绿色，其他的是蓝色，而且别在衣服兜上，白服也没系扣，领导就是有个性~<br>细看这里面只有一位是坐着的，行政大佬没坐床上，他坐在床尾处的那个黑色的圆盘旋转小凳子上，所以更加印证坐着的是领导~<br>两个青年才俊业务能力有差异，靠近患者的那个明显强于另一个，详见站姿，他是很自信的双手交叉在胸前那么站着，而另一个神色彷徨并且小爪捂着嘴角。<br>小大夫年轻，依然活泼，所以也打领带，母的那个还带着项链/项圈和耳环~<br><br>还有后面的那张照片，大致位置一样，不过行政大佬左边的位置，可能是空着的，也可能是实习生身材娇小，于是就看不到了~<br>刚才又看了下，那个身材娇小的小黄儿在椅子上呢~对面就是黑色毛发几乎看不清的公的小大夫~<br><br>后来看知友说后面那幅“照片”是<br>《dogs playing poker》于是找了下，放在这，大家一起看看 :-D~<br><figure><img src="index_files/2.jpg" width="589" height="322"></figure><br>这张就有意思了，突然啥也不想说了。。。
+                                                    <br><br><br><a href="">编辑于 昨天 18:38</a>
+                                                </div>
+                                                <div class="crl-content">
+                                                    <img src="index_files/2.jpg" width="200" height="112"><span class="crl-cc">
+                                                        
+                                                        左边背手的是业务大佬，不一定是大主任 右边坐着的是行政大佬，技术不一定最高 患者左边的两个是青年才俊，科室中坚力量 
+                                                        旁边两个拿本子的是刚来的小大夫，且一公一母 背对大家的穿短大衣的，是行政大佬的研究生 并且，业务大佬和青年才俊，他们仨里面穿刷…
+                                                        <a href="#" id="showC">显示全部</a>
+                                                        </span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="crl-footer">
+                                                    <a href=""><i class="cf-icon1"></i>关注问题</a>
+                                                    <a href=""><i class="cf-icon2"></i>70条评论</a>
+                                                    <a href="">·作者保留权利</a>
+                                                    <button id="hiddenC"><i class="cf-icon3"></i>收起</button>
+                                                </div>
+                                            </div>
+                                     </div>
+                         </div>
+                    </div>
+                    <div style="display:none">
+                        <div class="c-month">
+                                <div class="c-month-list">
+                                        <h2><a href="#">为什么一些日漫、日剧中的日本小偷形象是带个在鼻子处打结的头巾？ </a> </h2>
+                                            <div class="crl-left">      
+                                                 <button style="color: #698ebf;background: ##eff6fa;">2981</button>
+                                            </div>
+                                            <div class="crl-right">
+                                                <div class="crl-author">
+                                                    哔哩哔哩,<span>哔哩哔哩 - ( ゜- ゜)つロ 乾杯~ </span>
+                                                </div>
+                                                <div class="crl-hidden2">
+                                                   
+                                                    <br><br><br><a href="">编辑于 昨天 18:38</a>
+                                                </div>
+                                                <div class="crl-content2">
+                                                    <img src="image/4.jpg" width="200" height="112"><span class="crl-cc">
+                                                    谢邀～ <b>戴着在鼻子处打结的头巾，身背绿色带条纹的大包裹——</b>
+                                                    哆啦A梦 这可以说是日本动漫作品中最为经典的“小偷”形象了。那么这一形象又是从何而来呢？在回答这个问题之前，小电视有必要先给大家介绍两样在日本十分常见的日用品——    
+                                                    <b>“手拭”与“风吕敷”</b>。…
+                                                    <a href="#" id="showC2">显示全部</a>
+                                                    </span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="crl-footer">
+                                                    <a href=""><i class="cf-icon1"></i>关注问题</a>
+                                                    <a href=""><i class="cf-icon2"></i>115条评论</a>
+                                                    <a href="">·作者保留权利</a>
+                                                    <button id="hiddenC2"><i class="cf-icon3"></i>收起</button>
+                                                </div>
+                                            </div>
+                                     </div>
+                        </div>
+                    </div>
+                     <a class="extra">更多</a>
+                </div>
+             </div>
+             <div class="c-right">
+                <div class="r-and">
+                    <div class="rl-title">
+                        <h1>加入知乎</h1>
+                        <h2>与世界分享你的知识、经验、见解</h2>
+                    </div>
+                    <div class="rl-f">
+                        <form action="">
+                            <div class="f-input1">
+                                <input type="text" name="fullname" placeholder="姓名">
+                            </div>
+                             <div class="f-input2">
+                                <input type="text" name="call" placeholder="手机号">
+                            </div>
+                             <div class="f-input3">
+                                <input type="password" id="password" placeholder="密码 ( 不少于8位 ) ">
+                                <span class="icps" id="icps"></span>
+                            </div>
+                            <div class="f-footer">
+                                <input type="submit" value="注册" class="f-reg">
+                                 <div class="f-toggle">
+                                 <span>已有账号?<a id="r-and-login">登录</a></span>
+                            </div>
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="l-and">
+                    <div class="rl-title">
+                        <h1>登录知乎</h1>
+                        <h2>与世界分享你的知识、经验、见解</h2>
+                    </div>
+                    <div class="rl-f">
+                        <form action="">
+                            <div class="f-input1">
+                                <input type="text" name="fullname" placeholder="手机或邮箱">
+                            </div>
+                             <div class="f-input3">
+                                <input type="password" id="password" placeholder="密码">
+                                <span class="icon-password" id="icps" onclick="hideShowPsw()"></span>
+                            </div>
+                            <div class="f-footer">
+                                <input type="submit" value="登陆" class="f-reg">
+                                 <div class="f-toggle">
+                                 <label><input type="checkbox" checked="" value="true">记住我</label>
+                                 ·
+                                 <button>无法登录？</button>
+                                 <button id="l-and-reg">注册账号</button>
+                            </div>
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+
+                <div class="downloadApp">
+                    <button>
+                    <span class="icon-erwm"></span>
+                    下载知乎 App
+                    </button>
+                </div>
+
+                <div class="hot-yz">
+                    <div class="yz-content">
+                        <div class="yz-title">
+                            <a href="">更多圆桌>></a>
+                            <h3>热门圆桌</h3>
+                        </div>
+                        <ul class="yz-list">
+                            <li>
+                                <a><img src="image/tx1.jpg"></a>
+                                <div>
+                                    <a href="">30岁人生攻略</a>
+                                    <span class="yz-bq">还有7天结束</span>
+                                    <div class="meta">
+                                        <span>55788人关注</span>·<span>49个问题</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a><img src="image/tx2.jpg"></a>
+                                <div>
+                                    <a href="">机器之能 X 语言之美</a>
+                                    <div class="meta">
+                                        <span>1740人关注</span>·<span>29个问题</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="connectus">
+                    <a href="">联系我们</a> © 2018 知乎
+                </div>
+             </div>
+         </div>
+    </div>
+    <div>
+        <button class="icon-hover" id="btndialog" title="建议反馈"><span class="icon-advice"></span></button>
+    </div>
+<div class="screen">
+</div>
+    <div class="dialog"> 
+        <button id="btnclose"><span>X</span></button>
+        <div class="d-content">
+            <h2>提交反馈</h2>
+            <textarea placeholder="告诉我你的建议和遇到的问题" rows="3"></textarea>
+            <button>提交</button>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    function toggle(){
+    $('#r-and-login').click(function(){
+       $('.r-and').css('display','none');
+       $('.l-and').css('display','block');
+    })
+    $('#l-and-reg').click(function(){
+       $('.r-and').css('display','block');
+       $('.l-and').css('display','none');
+    })
+    }
+
+    function schc(){
+    $('#showC').click(function(){
+        $('.crl-hidden').css('display','block');
+        $('.crl-content').css('display','none');
+        $('#hiddenC').css('display','block');
+    })
+    $('#hiddenC').click(function(){
+        $('#hiddenC').css('display','none');
+        $('.crl-hidden').css('display','none');
+        $('.crl-content').css('display','block');
+    })
+    }
+
+    function schc2(){
+    $('#showC2').click(function(){
+        $('.crl-hidden2').css('display','block');
+        $('.crl-content2').css('display','none');
+        $('#hiddenC2').css('display','block');
+    })
+    $('#hiddenC2').click(function(){
+        $('#hiddenC2').css('display','none');
+        $('.crl-hidden2').css('display','none');
+        $('.crl-content2').css('display','block');
+    })        
+    }
+
+    function shpwd(){
+    $('#icps').click(function() {
+       "password" === $('#password').prop("type") ? ($('#icps').addClass("icps-hidden"),$('#password').prop("type", "text")) : ($('#icps').removeClass("icps-hidden"), $('#password').prop("type", "password"))
+     })
+    }
+    // 弹出对话框JS
+    function showdialog(){
+        $('#btndialog').click(function(){
+        $('.dialog').css('display','block');
+        $('.screen').css('z-index','21');
+        $('.screen').css('background-color','rgba(0,0,0,.65)');
+    })
+        $('#btnclose').click(function(){
+        $('.dialog').css('display','none');
+        $('.screen').css('z-index','-1');
+        $('.screen').css('background-color','transparent');
+    })
+    }
+
+
+$(document).ready(function () {
+$("#tabs").qmTabs();
+toggle();
+schc();
+schc2();
+shpwd();
+showdialog();
+ });
+// 标签页插件js
+(function ($) {
+    $.fn.extend({
+        qmTabs: function () {
+            var aTabBodys = $('#tabs-body > div');
+            $(this).children("li").each(function (index) {
+                $(this).click(function () {
+                    $(this).removeClass().addClass('tab-nav-action').siblings().removeClass().addClass('tab-nav');
+                    aTabBodys.hide().eq(index).show();
+                });
+            });
+        }
+    });
+})(jQuery);
+
+</script>
+<!-- 密码显示隐藏按钮js -->
+<!-- <script type="text/javascript">
+    var demoImg = document.getElementById("icps");  
+    var demoInput = document.getElementById("password");  
+    //隐藏text block，显示password block  
+    function hideShowPsw(){  
+        if (demoInput.type == "password") {  
+            demoInput.type = "text";  
+            demoImg.className="icps-hidden";
+        }else {  
+            demoInput.type = "password";  
+            demoImg.className="icps"; 
+        }  
+    }  
+</script> -->
+
+
+</body>
+</html>

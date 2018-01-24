@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>yxy知乎首页</title>
+ 	<link rel="stylesheet" type="text/css" href="css/base.css">
+    <script src="index_files/jquery-3.js"></script>
+<style type="text/css">
+#head{
+	position: fixed;
+    top: 0;
+	left: 0;
+	width: 100%;
+	height: 52px; 
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+	z-index: 1;
+}
+.w{
+	width: 1000px;
+	margin:0 auto;
+	line-height: 48px;
+}
+
+.h-left>a{
+	float: left;
+    font-weight: 400;
+    width: 64px;
+    height: 30px;
+    font-size: 30px;
+    color: #0f88eb;
+}
+.h-left li{
+	float: left;
+	padding: 0 15px;
+	color: #8590a6;
+	cursor: pointer;
+}
+.h-left li.active{
+	color: #444;
+}
+
+.h-left li:hover {
+    color:blue;
+}　
+.h-middle{
+	float: left;
+}
+.h-middle .inp{
+	padding: 5px 5px;
+	line-height: 24px;
+	width: 326px;
+	border: 1px solid #e4e4e4;
+	border-radius: 3px;
+	background: #fff;
+}
+.serach{
+	float: left;
+	line-height: 35px;
+}
+.serach button{
+	margin-left: -34px;
+	padding: 8px 0;
+	height: 34px;
+	width: 30px;
+	border: none;
+	outline: none;
+	background: transparent;
+}
+.btnask{
+	float: left;
+	margin-left: 15px; 
+	line-height: 50px;
+}
+.btnask button{
+    color: #fff;
+    background-color: #0084ff;
+    padding: 0 14px;
+    line-height: 30px;
+    border: 1px solid #0084ff;
+    border-radius: 3px;
+}
+
+.dingdang{
+	float: left;
+}
+.dingdang button{
+	margin-left: 175px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	outline: none;	
+}
+.dingdang button:hover,.xiaoxi button:hover{
+	opacity: 0.5;
+}
+.xiaoxi{
+	float: left;
+}
+.xiaoxi button{
+	margin-left: 30px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	outline: none;	
+}
+.Icon{
+	vertical-align: text-bottom;
+    fill: currentColor;
+    color: #8590a6;
+}
+.h-toux{
+	padding: 8px 0;
+}
+.h-toux button{
+	margin-left: 19px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+    outline: none;	
+}
+
+/*下拉部分*/
+.ddxiala{
+	width: 346px;
+	padding: 0;
+	left: 848.5px;
+    top: 36px;
+    margin-top: 16px;
+    position: fixed;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    box-shadow: 0 5px 20px rgba(26,26,26,.1);
+    z-index: 204;
+    display: none;
+}
+.x-xiaoxi{
+	width: 346px;
+	padding: 0;
+	left: 910.5px;
+	top: 36px;
+	margin-top: 16px;
+    position: fixed;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    box-shadow: 0 5px 20px rgba(26,26,26,.1);
+    z-index: 203;
+    display: none;
+}
+.t-toux{
+	position: fixed;
+	padding: 0;	
+	margin-top: 16px;
+	top: 42px;
+	width: 120px;
+	left: 1092px;
+	border: 1px solid #ebebeb;	
+	background: #fff;
+	border-radius: 4px;
+	box-shadow: 0 5px 20px rgba(26,26,26,.1);
+    z-index: 203;
+	display: none;
+}
+.t-arrow{
+	left: 54px;
+	top: -8px;
+	border: 8px solid transparent;
+    border-bottom-color: #ebebeb;
+	margin-top: -8px;
+	width: 0;
+    height: 0;
+    position: absolute;
+
+}
+.xx-title{
+	text-align: center;
+	padding: 17px 0;
+}
+.dd-arrow{
+	left: 166px;
+    top: -16px;
+    border-bottom-color: #ebebeb;
+    border: 8px solid transparent;
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+.dd-arrow::after{
+	margin-top: 1px;
+	position: absolute;
+    left: 0;
+    top: -9px;
+    content: "";
+    border: 8px solid transparent;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top-width: 1;
+    border-bottom-color: #ccc;
+    transform: translateX(-50%);
+}
+.dd-content{
+	display: flex;
+    border-bottom: 1px solid #ebebeb;
+}
+.dd-title button{
+	position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 48px;
+    cursor: pointer;
+    padding: 0 46px;
+    border: none;
+    background-color: transparent;
+}
+.dd-title button:not(:last-child):after {
+	position: absolute;
+	content: "";
+	width: 1px;
+	height: 22px;
+	left: 110px;
+	background-color: #ebebeb;
+}
+.xx-c{
+	border-top: 1px solid #ebebeb;
+	border-bottom: 1px solid #ebebeb;
+	text-align: center;
+	padding: 80px;
+}
+
+.emptystate{
+	text-align: center;
+	padding: 50px;
+}
+.dd-footer,.xx-footer{
+	font-weight: 400;
+	font-size: 16px;
+	border-top: 1px solid #ebebeb;
+	line-height: 35px;
+}
+.dd-footer a:first-child,.xx-footer a:first-child{
+	padding-left: 10px;
+}
+.dd-footer a:last-child,.xx-footer a:last-child{
+	padding-right: 10px;
+	float: right;
+}
+.xx-footer button{
+	background-color: transparent;
+	border: none;
+	outline: none;
+}
+.t-content a{
+	display: block;
+	padding: 5px;
+	font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+	color: #77839c;
+}
+
+/*主题部分CSS*/
+#main{
+	background: #f6f6f6;
+	margin-top: 48px;
+}
+.mw{
+	display: flex;
+	position: relative;
+	width: 1000px;
+	margin: 0 auto;
+}
+.left{
+	margin-top: 20px;
+	width: 694px;
+}
+.l-title{
+	border: 1px solid transparent;
+	border-radius: 3px;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+	box-sizing: border-box;
+	padding: 10px 15px;	
+}
+.l-content,.l-content2{
+	margin-top: 10px;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+	box-sizing: border-box;
+	padding: 15px 15px 10px 15px;
+}
+.l-content-span span{
+    color: #8590a6;
+    line-height: 1;
+}
+.close-bq,.close-bq2{
+	float: right;
+	border: none;
+	background: transparent;
+	outline: none;
+	cursor: pointer;
+	display: none;
+}
+.l-content:hover .close-bq{
+  		display: block;
+}
+.l-clist-toux{
+	margin:6px 0;
+	font-weight: 600;
+    color: #444;
+}
+.lcc-h2 h2{
+	margin:6px 0;
+	font-size: 18px;
+    font-weight: 600;
+    font-synthesis: style;
+    line-height: 1.6;
+    color: #1a1a1a;
+}
+.l-clist-toux span{
+	font-size: 14px;
+    line-height: 1;	
+    color: #646464;
+}
+.l-title>div{
+	float: left;
+}
+.l-title a{
+	padding: 0 20px;
+}
+.l-title .cg{
+ 	margin-left: 190px;
+}
+
+.l-clist-img{
+	float: left;
+	margin-right: 18px;
+	cursor: pointer;
+}
+.img-text{
+	line-height: 1.7;
+	cursor: pointer;
+}
+.img-text button{
+	margin-left: 3px;
+	border: none;
+	outline: none;
+	background: transparent;
+    color: #175199;
+	font: inherit;
+	font-weight: 400;
+	cursor: pointer;
+}
+.crl-footer{
+    margin: 10px 0;
+}
+.crl-footer a{
+    color: #999;
+}
+.crl-footer a:hover{
+    color: #259;
+}
+#hiddenC,#hiddenC2{
+    display: none;
+    float: right;
+    padding: 1px 6px 0
+    margin: 0;
+    border: 0;
+    outline: 0;
+}
+.f-zan{
+	padding: 0 12px;
+	text-align: center;
+    color: #0084ff;
+    background: rgba(0,132,255,.1);
+    border-color: transparent;
+    border-radius: 3px;
+    box-sizing: border-box;
+    line-height: 30px;
+}
+.f-zan:focus{
+	color: #fff;
+    background: #0084ff;
+}
+.cf-icon1, .cf-icon2{
+	padding: 0 8px;
+
+}
+/*右部分*/
+.right{
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.r-bq{
+	border: 1px solid transparent;
+	border-radius: 3px;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+	box-sizing: border-box;
+	padding: 10px 15px;	
+	text-align: center;
+	float: left;
+}
+.r-bq ul{	
+}
+.r-bq li{
+	padding: 10px 10px;
+	width: 26%;
+	float: left;
+}
+.r-bq li:hover a{
+	color: #e4e4e4;
+}
+.r-bq a{
+    color: #8590a6;
+}
+.Zi--Live{
+	color: yellow;
+}
+.shu{
+	color: #43d480;
+}
+.yuanzhuo{
+	color: #0084ff;
+}
+.zhuanlan{
+    color: #0f88eb;
+}
+
+.bq-text{
+	display: block;
+}
+.r-list{
+	margin-top: 170px;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+	box-sizing: border-box;
+	padding: 10px 0px;		
+}
+.r-list ul{
+	margin: 5px 0;
+}
+.r-list ul li:hover{
+	background: #f6f6f6;
+	border: none;
+	outline: none;
+}
+.r-list ul li a{
+	display: block;
+	padding: 0 15px;
+	line-height: 48px;
+    color: #8590a6;
+}
+
+.f-footer{
+	margin:15px 0;
+    font-size: 13px;
+    line-height: 2;
+    color: #8590a6;
+}
+
+/*意见和返回顶部*/
+.CornerButtons {
+    position: fixed;
+    bottom: 0;
+    right: 12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-transition: -webkit-transform .2s ease;
+    transition: -webkit-transform .2s ease;
+    transition: transform .2s ease;
+    transition: transform .2s ease,-webkit-transform .2s ease;
+    will-change: transfrom;
+}
+.CornerButton{
+    background: #ffb;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    -webkit-box-shadow: 0 1px 3px rgba(76,26,26,.1);
+    box-shadow: 0 1px 3px rgba(76,26,26,.3);
+}
+.CornerAnimayedFlex1 {
+    width: 40px;
+    height: 52px;
+    -webkit-transition: height .2s ease;
+    transition: height .2s ease;
+}
+.CornerAnimayedFlex{
+	width: 40px;
+    height: 52px;
+    -webkit-transition: height .2s ease;
+    transition: height .2s ease;
+    display: block;
+}
+
+.Button--link, .Button--plain {
+    height: auto;
+    padding: 0;
+    line-height: inherit;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+}
+.Buttony{
+	display: inline-block;
+	padding: 8px 0;
+    font-size: 14px;
+    color: #8590a6;
+}
+</style>
+
+</head>
+
+<body>
+<header>
+	<div id="head">
+		<div class="w">	
+			<div class="h-left">
+				<a href="#">知乎</a>
+				<ul>
+					<li class="active"><a href="index.html">首页</a></li>
+					<li><a href="find.html">发现</a></li>
+					<li><a>话题</a></li>
+				</ul>
+				<div class="h-middle">
+					<div class="serach">
+						<input class="inp" type="text" placeholder="搜索感兴趣的内容...">
+						<button><svg viewBox="0 0 16 16" class="Icon Icon--search" style="height:16px;width:16px;" width="16" height="16" aria-hidden="true" data-reactid="26"><title data-reactid="27"></title><g data-reactid="28"><path d="M12.054 10.864c.887-1.14 1.42-2.57 1.42-4.127C13.474 3.017 10.457 0 6.737 0S0 3.016 0 6.737c0 3.72 3.016 6.737 6.737 6.737 1.556 0 2.985-.533 4.127-1.42l3.103 3.104c.765.46 1.705-.37 1.19-1.19l-3.103-3.104zm-5.317.925c-2.786 0-5.053-2.267-5.053-5.053S3.95 1.684 6.737 1.684 11.79 3.95 11.79 6.737 9.522 11.79 6.736 11.79z"></path></g></svg></button>
+					</div>
+					<div class="btnask">
+						<button>提问</button>
+					</div>
+				</div>
+			</div>
+			<div class="h-right">
+				<div class="dingdang">
+					<button>
+						 <svg viewBox="0 0 20 22" class="Icon Icon--news" width="20" height="20" aria-hidden="true" style="height: 20px; width: 20px;"><title></title><g><path d="M2.502 14.08C3.1 10.64 2 3 8.202 1.62 8.307.697 9.08 0 10 0s1.694.697 1.797 1.62C18 3 16.903 10.64 17.497 14.076c.106 1.102.736 1.855 1.7 2.108.527.142.868.66.793 1.206-.075.546-.542.95-1.09.943H1.1C.55 18.34.084 17.936.01 17.39c-.075-.547.266-1.064.794-1.206.963-.253 1.698-1.137 1.698-2.104zM10 22c-1.417.003-2.602-1.086-2.73-2.51-.004-.062.02-.124.063-.17.043-.045.104-.07.166-.07h5c.063 0 .124.025.167.07.044.046.067.108.063.17-.128 1.424-1.313 2.513-2.73 2.51z"></path></g></svg>
+					</button>
+				</div>
+				<div class="xiaoxi">
+					<button>
+					<svg viewBox="0 0 20 20" class="Icon Icon--message" width="20" height="20" aria-hidden="true" style="height: 20px; width: 20px;"><title></title><g><path d="M9 0C3.394 0 0 4.13 0 8c0 1.654.522 3.763 2.014 5.566.314.292.518.82.454 1.17-.165 1.488-.842 1.905-.842 1.905-.328.332.105.67.588.582 1.112-.2 2.07-.58 3.526-1.122.4-.202.464-.147.78-.078C11.524 17.764 18 14 18 8c0-3.665-3.43-8-9-8z"></path><path d="M19.14 9.628c.758.988.86 2.01.86 3.15 0 1.195-.62 3.11-1.368 3.938-.21.23-.354.467-.308.722.12 1.073.614 1.5.614 1.5.237.24-.188.563-.537.5-.802-.145-1.494-.42-2.545-.81-.29-.146-.336-.106-.563-.057-2.043.712-4.398.476-6.083-.926 5.964-.524 8.726-3.03 9.93-8.016z"></path></g></svg>
+					</button>
+				</div>
+				<div class="h-toux">
+					<button>
+						<img src="image/5.jpeg" style="width: 30px;height: 30px;">
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+	<div class="ddxiala">
+		<span class="dd-arrow"></span>
+		<div class="dd-content">
+			<div class="dd-title">
+				<button><svg viewBox="0 0 20 15" class="Icon PushNotifications-tabIcon PushNotifications-selectedTabIcon Icon--lastNews" width="20" height="16" aria-hidden="true" style="height: 16px; width: 20px;"><title></title><g><path d="M6.493 6C5.668 6 5 6.666 5 7.5 5 8.328 5.664 9 6.493 9h12.014C19.332 9 20 8.334 20 7.5c0-.828-.664-1.5-1.493-1.5H6.493zm0 6C5.668 12 5 12.666 5 13.5c0 .828.664 1.5 1.493 1.5h12.014c.825 0 1.493-.666 1.493-1.5 0-.828-.664-1.5-1.493-1.5H6.493zM1.5 0C.672 0 0 .666 0 1.5 0 2.328.666 3 1.5 3 2.328 3 3 2.334 3 1.5 3 .672 2.334 0 1.5 0zm0 6C.672 6 0 6.666 0 7.5 0 8.328.666 9 1.5 9 2.328 9 3 8.334 3 7.5 3 6.672 2.334 6 1.5 6zm0 6c-.828 0-1.5.666-1.5 1.5 0 .828.666 1.5 1.5 1.5.828 0 1.5-.666 1.5-1.5 0-.828-.666-1.5-1.5-1.5zM6.493 0C5.668 0 5 .666 5 1.5 5 2.328 5.664 3 6.493 3h12.014C19.332 3 20 2.334 20 1.5c0-.828-.664-1.5-1.493-1.5H6.493z"></path></g></svg></button>
+				<button><svg viewBox="0 0 24 17" class="Icon PushNotifications-tabIcon Icon--userNews" width="20" height="16" aria-hidden="true" style="height: 16px; width: 20px;"><title></title><g><path d="M9.464 7.705c-.265.46-.59.904-.538 1.315.206 1.603 3.205 1.92 4.087 2.99.643.783.91 1.97.972 3.96.01.32 0 1.03-.946 1.03H1.02c-1 0-1.01-.683-1-.995.068-1.994.318-3.208.976-3.994.886-1.056 4.084-1.345 4.224-3.05.032-.385-.268-.786-.538-1.255C3.182 5.102 2.608 0 7.054 0s3.824 5.25 2.41 7.705zM18.27 8.545c.963.126 2.924-.574 2.924-.574-.664-.68-.815-1.472-1.294-4.586C19.507.27 16.8.3 16.597.3c-.203 0-2.91-.03-3.297 3.084-.485 3.113-.636 3.907-1.3 4.586 0 0 1.96.7 2.923.575l-.003.68c-.494.542-1.79.725-2.376 1.077 2.796.316 2.954 3.696 2.954 6.678 1.475-.002 6.497.02 7.5.02 1.002 0 .996-.674.986-.976-.06-1.8-.28-2.786-.418-3.434-.416-1.976-3.58-1.488-5.292-3.364l-.003-.68z"></path></g></svg></button>
+				<button><svg viewBox="0 0 20 18" class="Icon PushNotifications-tabIcon Icon--thankNews" width="20" height="16" aria-hidden="true" style="height: 16px; width: 20px;"><title></title><g><path d="M0,5.43706401 C5.73656627e-08,2.50510671 2.2938809,0.094365083 5.20737357,1.60732864e-07 C7.2427157,-0.000505078569 9.0922816,1.19013727 9.9999282,3 C10.8228521,1.24236064 12.6486957,1.60732867e-07 14.6514359,1.60732864e-07 C17.5445125,1.60732867e-07 19.9999282,2.50715387 19.9999282,5.43242499 C19.9999282,13.2399998 11.8420757,18 9.99997552,18 C8.15785253,18 -1.52669543e-07,13.2399998 0,5.43706401 Z"></path></g></svg></button>
+			</div>
+		</div>
+			<div class="dd-content-c">
+				<div class="emptystate">
+					<svg xmlns="http://www.w3.org/2000/svg" width="150" height="120" viewBox="0 0 150 120" class="EmptyState-image"><title></title><g><path fill="#EBEEF5" d="M46.76 78.71a1.895 1.895 0 0 0-1.378 2.092c.13.948.94 1.648 1.904 1.635h55.468a1.882 1.882 0 0 0 1.884-1.635c.13-.95-.46-1.846-1.367-2.09a8.61 8.61 0 0 1-6.4-7.872l-2.473-20.928c-.96-7.872-6.567-14.37-14.178-16.435l-.986-.267-.113-1.014c-.24-2.106-2.01-3.696-4.11-3.696s-3.87 1.59-4.104 3.696l-.114 1.014-.98.267c-7.61 2.063-13.22 8.563-14.18 16.43L53.15 70.84c-.2 3.74-2.79 6.926-6.393 7.87zm50.61-29.155l2.482 20.982c.127 2.562 1.817 4.654 4.19 5.276a4.895 4.895 0 0 1 3.568 5.397c-.336 2.446-2.434 4.26-4.876 4.227H47.306a4.883 4.883 0 0 1-4.896-4.227 4.897 4.897 0 0 1 3.58-5.4 5.614 5.614 0 0 0 4.17-5.168l2.49-21.093c1.068-8.77 7.135-16.06 15.46-18.7.807-3.11 3.615-5.35 6.9-5.35s6.094 2.24 6.9 5.35c8.325 2.64 14.393 9.93 15.46 18.7zm-16.417 38.91c-.288 3.184-3.007 5.36-5.943 5.36-2.936 0-5.655-2.176-5.943-5.36l-2.988.27c.43 4.82 4.52 8.09 8.93 8.09s8.49-3.27 8.93-8.09l-2.99-.27z"></path></g></svg>
+					<h5>还没有消息哦！</h5>
+				</div>
+			</div>
+			<div class="dd-footer">
+				<a class="Button Button--plain" href="/settings/notification" type="button"><svg viewBox="0 0 20 20" class="Icon Button-icon Icon--setting" width="14" height="16" aria-hidden="true" style="height: 16px; width: 14px;"><title></title><g><path d="M18.868 15.185c-.164.096-.315.137-.452.137-.123 0-1.397-.26-1.617-.233-1.355.013-1.782 1.275-1.836 1.74-.055.454 0 .893.19 1.304.138.29.125.577-.067.85-.863.893-2.165 1.016-2.357 1.016-.123 0-.247-.055-.356-.15-.11-.097-.685-1.14-1.07-1.47-1.303-.954-2.246-.328-2.63 0-.397.33-.67.7-.835 1.126-.07.18-.18.302-.33.37-1.354.426-2.918-.92-3.014-1.056-.082-.11-.123-.22-.123-.356-.014-.138.383-1.276.342-1.688-.342-1.9-1.836-1.687-2.096-1.673-.303.014-.604.068-.92.178-.205.056-.396.03-.588-.054-.888-.462-1.137-2.332-1.11-2.51.055-.315.192-.52.438-.604.425-.164.81-.452 1.15-.85.932-1.262.344-2.25 0-2.634-.34-.356-.725-.645-1.15-.81-.137-.04-.233-.15-.328-.315C-.27 6.07.724 4.95.978 4.733c.255-.22.6-.055.723 0 .426.164.878.22 1.344.15C4.7 4.636 4.784 3.14 4.81 2.908c.015-.247-.11-1.29-.136-1.4-.027-.123-.014-.22.027-.315C5.318.178 7.073 0 7.223 0c.178 0 .33.055.44.178.108.124.63 1.11 1 1.4.398.338 1.582.83 2.588.013.398-.273.96-1.288 1.083-1.412.123-.123.26-.178.384-.178 1.56 0 2.33 1.03 2.438 1.22.083.124.096.248.07.37-.03.152-.33 1.153-.262 1.606.366 1.537 1.384 1.742 1.89 1.783.494.027 1.645-.357 1.81-.344.164.014.315.083.424.206.535.31.85 1.715.905 2.14.027.233-.014.44-.11.562-.11.138-1.165.714-1.48 1.112-.855.982-.342 2.25-.068 2.606.26.37 1.22.905 1.288.96.15.137.26.302.315.494.146 1.413-.89 2.387-1.07 2.47zm-8.905-.535c.644 0 1.246-.123 1.822-.356.575-.248 1.082-.59 1.493-1.016.425-.425.754-.92 1-1.495.247-.562.357-1.18.357-1.81 0-.66-.11-1.262-.356-1.825-.248-.562-.577-1.056-1.002-1.48-.41-.427-.918-.756-1.493-1.003-.576-.233-1.178-.357-1.822-.357-.644 0-1.247.124-1.81.357-.56.247-1.067.576-1.478 1.002-.425.425-.768.92-1 1.48-.247.564-.37 1.167-.37 1.826 0 .644.123 1.248.37 1.81.232.563.575 1.07 1 1.495.424.426.917.768 1.48 1.016.56.233 1.164.356 1.808.356z"></path></g></svg><!-- react-text: 28 -->设置<!-- /react-text --></a>
+				<a href="">查看全部提醒</a>
+			</div>		
+	</div>
+
+	<div class="x-xiaoxi">
+		<div>
+			<span class="dd-arrow"></span>
+			<div class="xx-content">
+				<div class="xx-title">我的私信</div>
+				<div class="xx-c">
+					<svg xmlns="http://www.w3.org/2000/svg" width="150" height="120" viewBox="0 0 150 120" class="EmptyState-image"><title></title><g><path fill="#EBEEF5" d="M62.85 82.335c-.13-.03-.202-.04-.25-.044-.117 0-.31.05-.87.34-7.092 2.65-7.508 2.79-9.903 3.43-.955.26-1.885.46-2.826.63-1.24.23-2.52-.08-3.35-.83-1.12-1.01-1.16-2.58-.02-3.73l.28-.22s.074-.053.204-.19c.265-.26.54-.63.81-1.102.588-1.05 1.025-2.445 1.224-4.246.145-.8-.374-2.14-1.117-2.833-.23-.216-.696-.727-1.487-1.683-3.62-4.37-6.03-12.332-6.03-18.87C39.5 37.19 53.48 23.5 72.446 23.5c19.842 0 32.947 13.235 32.947 29.466 0 21.157-22.76 36.133-42.028 29.488-.182-.04-.473-.11-.515-.12zm-.068-3.038c.233.014.448.05.717.108l.6.14c17.56 6.102 38.29-7.514 38.29-26.58 0-14.58-11.77-26.465-29.95-26.465-17.32 0-29.95 12.36-29.95 26.466 0 5.885 2.203 13.176 5.333 16.96.716.865 1.102 1.287 1.222 1.4 1.432 1.34 2.34 3.65 2.044 5.404-.246 2.172-.8 3.94-1.585 5.338a8.3 8.3 0 0 1-1.213 1.68c1.02-.175 1.87-.366 2.75-.598 2.25-.596 2.667-.743 9.4-3.245.95-.47 1.596-.653 2.326-.608zm11.554 9.593a1.5 1.5 0 1 1 1.919-2.306c5.242 4.364 12.82 5.41 19.8 2.98l.173-.05c.084-.017.372-.085.433-.1.22-.046.39-.074.59-.086.61-.037 1.14.11 1.87.472 4.83 1.793 5.13 1.9 6.73 2.324.57.15 1.12.276 1.68.38-.22-.318-.46-.7-.68-1.153-.58-1.14-.99-2.51-1.173-4.12-.232-1.39.38-2.75 1.537-3.83.12-.11.43-.44.947-1.05 2.1-2.47 3.356-7.15 3.356-11.61 0-4.7-.62-7.39-2.7-10.094a1.5 1.5 0 0 1 2.381-1.828c2.56 3.33 3.318 6.62 3.318 11.925 0 5.11-1.433 10.45-4.066 13.555-.59.693-.98 1.107-1.19 1.304-.49.46-.675.873-.623 1.16.16 1.37.47 2.41.894 3.25.324.647.62 1.013.756 1.13 1.162 1.17.883 2.636-.177 3.54-.78.67-1.91 1-2.948.817-.69-.124-1.373-.28-2.073-.46-1.75-.466-2.05-.57-7.08-2.44l-.156-.068c-.344-.173-.42-.195-.414-.195-.142.03-.33.075-.464.105-7.91 2.728-16.56 1.52-22.627-3.533z"></path></g></svg>
+				</div>
+				<div class="xx-footer">
+					<button class="Button Button--plain" type="button"><svg viewBox="0 0 12 12" class="Icon Button-icon Icon--modify" width="14" height="16" aria-hidden="true" style="height: 16px; width: 14px;"><title></title><g><path d="M.423 10.32L0 12l1.667-.474 1.55-.44-2.4-2.33-.394 1.564zM10.153.233c-.327-.318-.85-.31-1.17.018l-.793.817 2.49 2.414.792-.814c.318-.328.312-.852-.017-1.17l-1.3-1.263zM3.84 10.536L1.35 8.122l6.265-6.46 2.49 2.414-6.265 6.46z" fill-rule="evenodd"></path></g></svg><!-- react-text: 22 -->写新私信<!-- /react-text --></button>
+					<a class="Button Button--plain" href="/inbox" type="button"><!-- react-text: 24 -->查看全部私信<!-- /react-text --></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="t-toux">
+		<span class="t-arrow"></span>
+		<div class="t-content">
+			<a class="Button Menu-item AppHeaderProfileMenu-item Button--plain" type="button" href="/people/wo-bu-shi-wu-a-ge-35"><svg viewBox="0 0 20 20" class="Icon Button-icon Icon--profile" width="14" height="16" aria-hidden="true" style="height: 16px; width: 14px;"><title></title><g><path d="M13.4170937,10.9231839 C13.0412306,11.5757324 12.5795351,12.204074 12.6542924,12.7864225 C12.9457074,15.059449 18.2164534,14.5560766 19.4340179,15.8344151 C20,16.4286478 20,16.4978969 20,19.9978966 C13.3887136,19.9271077 6.63736785,19.9978966 0,19.9978966 C0.0272309069,16.4978969 0,16.5202878 0.620443914,15.8344151 C1.92305664,14.3944356 7.20116276,15.1185829 7.40016946,12.7013525 C7.44516228,12.1563518 7.02015319,11.5871442 6.63736814,10.9228381 C4.51128441,7.2323256 3.69679769,4.67956187e-11 10,9.32587341e-14 C16.3032023,-4.66091013e-11 15.4216968,7.4429255 13.4170937,10.9231839 Z"></path></g></svg><!-- react-text: 10 -->我的主页<!-- /react-text --></a><a class="Button Menu-item AppHeaderProfileMenu-item Button--plain" href="/settings/profile" type="button"><svg viewBox="0 0 20 20" class="Icon Button-icon Icon--setting" width="14" height="16" aria-hidden="true" style="height: 16px; width: 14px;"><title></title><g><path d="M18.868 15.185c-.164.096-.315.137-.452.137-.123 0-1.397-.26-1.617-.233-1.355.013-1.782 1.275-1.836 1.74-.055.454 0 .893.19 1.304.138.29.125.577-.067.85-.863.893-2.165 1.016-2.357 1.016-.123 0-.247-.055-.356-.15-.11-.097-.685-1.14-1.07-1.47-1.303-.954-2.246-.328-2.63 0-.397.33-.67.7-.835 1.126-.07.18-.18.302-.33.37-1.354.426-2.918-.92-3.014-1.056-.082-.11-.123-.22-.123-.356-.014-.138.383-1.276.342-1.688-.342-1.9-1.836-1.687-2.096-1.673-.303.014-.604.068-.92.178-.205.056-.396.03-.588-.054-.888-.462-1.137-2.332-1.11-2.51.055-.315.192-.52.438-.604.425-.164.81-.452 1.15-.85.932-1.262.344-2.25 0-2.634-.34-.356-.725-.645-1.15-.81-.137-.04-.233-.15-.328-.315C-.27 6.07.724 4.95.978 4.733c.255-.22.6-.055.723 0 .426.164.878.22 1.344.15C4.7 4.636 4.784 3.14 4.81 2.908c.015-.247-.11-1.29-.136-1.4-.027-.123-.014-.22.027-.315C5.318.178 7.073 0 7.223 0c.178 0 .33.055.44.178.108.124.63 1.11 1 1.4.398.338 1.582.83 2.588.013.398-.273.96-1.288 1.083-1.412.123-.123.26-.178.384-.178 1.56 0 2.33 1.03 2.438 1.22.083.124.096.248.07.37-.03.152-.33 1.153-.262 1.606.366 1.537 1.384 1.742 1.89 1.783.494.027 1.645-.357 1.81-.344.164.014.315.083.424.206.535.31.85 1.715.905 2.14.027.233-.014.44-.11.562-.11.138-1.165.714-1.48 1.112-.855.982-.342 2.25-.068 2.606.26.37 1.22.905 1.288.96.15.137.26.302.315.494.146 1.413-.89 2.387-1.07 2.47zm-8.905-.535c.644 0 1.246-.123 1.822-.356.575-.248 1.082-.59 1.493-1.016.425-.425.754-.92 1-1.495.247-.562.357-1.18.357-1.81 0-.66-.11-1.262-.356-1.825-.248-.562-.577-1.056-1.002-1.48-.41-.427-.918-.756-1.493-1.003-.576-.233-1.178-.357-1.822-.357-.644 0-1.247.124-1.81.357-.56.247-1.067.576-1.478 1.002-.425.425-.768.92-1 1.48-.247.564-.37 1.167-.37 1.826 0 .644.123 1.248.37 1.81.232.563.575 1.07 1 1.495.424.426.917.768 1.48 1.016.56.233 1.164.356 1.808.356z"></path></g></svg><!-- react-text: 15 -->设置<!-- /react-text --></a><a class="Button Menu-item AppHeaderProfileMenu-item Button--plain" href="/logout" type="button"><svg viewBox="0 0 20 20" class="Icon Button-icon Icon--logout" width="14" height="16" aria-hidden="true" style="height: 16px; width: 14px;"><title></title><g><path d="M0 10C0 7.242 1.154 4.58 3.167 2.697c.51-.477 1.31-.45 1.79.06.475.51.45 1.31-.06 1.787C3.37 5.975 2.53 7.91 2.53 10c0 4.118 3.35 7.468 7.47 7.468 4.12 0 7.47-3.35 7.47-7.47 0-2.04-.81-3.948-2.28-5.37-.5-.485-.514-1.286-.028-1.788.485-.5 1.286-.517 1.79-.03C18.915 4.712 20 7.265 20 10c0 5.512-4.486 9.998-10 9.998s-10-4.486-10-10zm8.7-.483V1.26C8.7.564 9.26 0 9.96 0c.695 0 1.26.564 1.26 1.26v8.257c0 .696-.565 1.26-1.26 1.26-.698 0-1.26-.564-1.26-1.26z"></path></g></svg><!-- react-text: 20 -->退出<!-- /react-text --></a></div>			
+		</div>
+	</div>
+
+	<!-- 主题部分HTML -->
+	<div id="main">
+		<div class="mw">
+			<div class="left">
+				<div class="l-title">
+					<div>
+						<a><svg width="16" height="16" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" class="Icon Icon--question" style="height:16px;width:16px;" aria-hidden="true" data-reactid="58"><title data-reactid="59"></title><g data-reactid="60"><g transform="translate(-3 -3)" fill="#8590A6" fill-rule="evenodd">     <path d="M3.833 6.356c0-1.66 1.334-3.007 2.993-3.007h9.348c1.653 0 2.993 1.338 2.993 3.006v8.498c0 1.66-1.266 3.467-2.812 4.03l-1.09.396c-2.08.757-5.447.76-7.53 0l-1.09-.396c-1.553-.565-2.812-2.363-2.812-4.03V6.356zm1.643.67v7.492c0 1.1.84 2.314 1.873 2.697l2.277.844c1.035.383 2.712.383 3.746 0l2.278-.845c1.036-.384 1.874-1.59 1.874-2.697V7.026c0-1.1-.897-2.003-2.003-2.003H7.48c-1.118 0-2.004.897-2.004 2.003z"></path>     <path d="M13.012 11.46l-.422.29c-.232.177-.433.53-.433.53s-.08.134-.11.398v.16h-1.63v-.24c.02-.555.11-.86.343-1.13.364-.422 1.168-.935 1.202-.956.114-.086.212-.184.284-.288.17-.23.244-.412.244-.59 0-.25-.074-.478-.22-.682-.143-.197-.41-.296-.798-.296-.385 0-.648.12-.806.368-.162.254-.243.523-.243.796l-.005.23-1.656-.003.003-.23c.043-1.007.406-1.732 1.078-2.155.424-.27 1.113-.396 1.657-.406.873.01 1.39.193 1.923.575.54.387.815.965.815 1.72 0 .422-.135.82-.4 1.18-.14.193-.442.434-.826.73z"></path>     <ellipse cx="11.226" cy="14.791" rx="1.095" ry="1.116"></ellipse>   </g></g></svg>提问</a>
+						<a href=""><svg width="16" height="16" viewBox="0 0 17 18" xmlns="http://www.w3.org/2000/svg" class="Icon Icon--paper" style="height:16px;width:16px;" aria-hidden="true" data-reactid="64"><title data-reactid="65"></title><g data-reactid="66"><g fill="#8590A6" fill-rule="evenodd">     <path d="M.833 4.35c0-2.21 1.79-4 4.01-4h7.315c2.214 0 4.01 1.79 4.01 4v8.743c0 2.21-1.79 4-4.01 4H4.842c-2.214 0-4.01-1.792-4.01-4V4.35zm1.643-.32v9.383c0 1.106.897 2.006 2.003 2.006h8.04c1.118 0 2.004-.9 2.004-2.007V4.03c0-1.107-.897-2.007-2.003-2.007H4.48c-1.118 0-2.004.898-2.004 2.006z"></path><path d="M4.667 4.814h7.666v1.674H4.667V4.814zm0 2.79h7.666V9.28H4.667V7.604zm0 2.79h4.928v1.676H4.667v-1.675z"></path>   </g></g></svg>回答</a>
+						<a href=""><svg width="16" height="16" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" class="Icon Icon--write" style="height:16px;width:16px;" aria-hidden="true" data-reactid="69"><title data-reactid="70"></title><g data-reactid="71"><g fill="none" fill-rule="evenodd">     <path d="M9.595 2.023H4.842c-2.22 0-4.01 1.793-4.01 4.005v7.62c0 2.21 1.796 4.003 4.01 4.003h7.316c2.22 0 4.01-1.792 4.01-4.003v-7.11.51L14.523 8.72v4.253c0 1.66-1.336 3.004-3.01 3.004h-6.03c-1.66 0-3.008-1.338-3.008-3.004V6.7c0-1.657 1.336-3.002 3.01-3.002h2.467L9.595 2.03v-.007z" fill="#8590A6"></path>     <path d="M6.372 11.08c-.185-.915.2-2.238.85-2.888l6.616-6.616c.565-.565 1.472-.567 2.038 0 .56.56.56 1.477 0 2.038L9.258 10.23c-.652.65-1.975 1.034-2.888.85z" stroke="#8590A6" stroke-width="1.5"></path>     <path fill="#8590A6" d="M13.04 2.088l2.324 2.324-.987.986-2.323-2.324z"></path>   </g></g></svg>写文章</a>
+						<a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" data-reactid="74"><title data-reactid="75"></title><g data-reactid="76"><path d="M12.63 2.02V0h1.35v2.02H16v1.35h-2.02V5.4h-1.35V3.36H10.6V2.02h2.03zm-.17 4.9h1.7v4.76c0 1.5-.17 2.05-.46 2.6-.3.55-.73.98-1.28 1.27-.54.3-1.1.45-2.6.45h-5.5c-1.5 0-2.05-.16-2.6-.45-.55-.3-.98-.72-1.27-1.27-.3-.55-.45-1.1-.45-2.6v-5.5c0-1.5.16-2.06.45-2.6.3-.55.72-.98 1.27-1.28.55-.3 1.1-.45 2.6-.45H9.1v1.7H4.3c-1.12 0-1.46.05-1.8.24-.26.1-.45.3-.58.55-.2.35-.26.7-.26 1.8v5.5c0 1.13.07 1.47.26 1.8.13.27.32.46.58.6.34.18.68.25 1.8.25h5.5c1.12 0 1.46-.06 1.8-.25.27-.13.46-.32.6-.58.18-.34.24-.68.24-1.8V6.9zM8.6 6.7c.7-.16 1.45.06 1.98.6.83.83.83 2.2 0 3.04l-.03.03c-.84.85-2.2.85-3.04 0l-1.92-2c-.25-.24-.64-.24-.88 0l-.04.04c-.25.28-.25.7 0 .95.15.16.37.22.57.17.4-.1.82.18.9.58.1.4-.16.82-.57.9-.7.17-1.46-.04-1.98-.58-.83-.85-.83-2.2 0-3.06l.03-.02c.86-.85 2.2-.85 3.05 0L8.6 9.3c.24.25.63.25.87 0l.03-.02c.25-.26.25-.67 0-.93-.16-.15-.37-.2-.58-.17-.4.1-.8-.16-.9-.57-.1-.4.16-.8.57-.9z"></path></g></svg>写想法</a>
+					</div>
+						<a href="" class="cg">草稿</a>
+				</div>
+				<div class="l-content">
+					<div class="l-content-span">
+						<span>来自话题：电影</span>
+						<button class="close-bq" data-tooltip="不感兴趣" data-tooltip-position="bottom" type="button"><svg viewBox="0 0 14 14" class="Icon Icon--remove" style="height:10px;width:10px;" width="10" height="10" aria-hidden="true" data-reactid="85"><title data-reactid="86"></title><g data-reactid="87"><path d="M8.486 7l5.208-5.207c.408-.408.405-1.072-.006-1.483-.413-.413-1.074-.413-1.482-.005L7 5.515 1.793.304C1.385-.103.72-.1.31.31-.103.724-.103 1.385.305 1.793L5.515 7l-5.21 5.207c-.407.408-.404 1.072.007 1.483.413.413 1.074.413 1.482.005L7 8.485l5.207 5.21c.408.407 1.072.404 1.483-.007.413-.413.413-1.074.005-1.482L8.485 7z"></path></g></svg></button>
+					</div>
+					<div class="l-clist">
+						<div class="l-clist-toux"><img src="image/6.jpg" width="24" height="24">
+							陈书生<span>,文艺小青年、单身老司机</span>
+							
+						</div>
+						<div class="l-clist-content">
+							<div class="lcc-h2"><h2>车站、火车站、机场安检员见过乘客包里最奇怪的东西是什么？</h2></div>
+							<div class="l-clist-img"><img src="image/7.jpg" width="190"></div>
+							<div class="img-text"><span>玻璃的肛塞。。。 还带着小红心❤，肥肠可爱的那种，像仙女棒一样，我都特别喜欢 在青岛机场，没有托运，直接安检 被一个妹子和一个小哥拦下来了，非得要打开包看看是啥 拿出来之后。。。 安检小哥:这是啥阿 我:。。。…</span>
+								<button>阅读全文<svg viewBox="0 0 10 6" class="Icon ContentItem-arrowIcon Icon--arrow" width="10" height="16" aria-hidden="true" style="height: 16px; width: 10px;"><title></title><g><path d="M8.716.217L5.002 4 1.285.218C.99-.072.514-.072.22.218c-.294.29-.294.76 0 1.052l4.25 4.512c.292.29.77.29 1.063 0L9.78 1.27c.293-.29.293-.76 0-1.052-.295-.29-.77-.29-1.063 0z"></path></g></svg></button>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="crl-footer">
+						<button class="f-zan">
+							<svg viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" class="Icon Icon--like" style="height:16px;width:13px;" width="13" height="16" aria-hidden="true"><title></title><g data-reactid="149"><path d="M.718 7.024c-.718 0-.718.63-.718.63l.996 9.693c0 .703.718.65.718.65h1.45c.916 0 .847-.65.847-.65V7.793c-.09-.88-.853-.79-.846-.79l-2.446.02zm11.727-.05S13.2 5.396 13.6 2.89C13.765.03 11.55-.6 10.565.53c-1.014 1.232 0 2.056-4.45 5.83C5.336 6.965 5 8.01 5 8.997v6.998c-.016 1.104.49 2 1.99 2h7.586c2.097 0 2.86-1.416 2.86-1.416s2.178-5.402 2.346-5.91c1.047-3.516-1.95-3.704-1.95-3.704l-5.387.007z"></path></g></svg>
+							2.1K
+						</button>
+                        <a href=""><i class="cf-icon1"></i>关注问题</a>
+                        <a href=""><i class="cf-icon2"></i>71条评论</a>
+                        <a href="">·作者保留权利</a>
+                        <button id="hiddenC"><i class="cf-icon3"></i>收起</button>
+                    </div>
+				</div>
+
+				<div class="l-content2">
+					<div class="l-content-span">
+						<span>热门内容, 来自: 隐私</span>
+						<button class="close-bq2" data-tooltip="不感兴趣" data-tooltip-position="bottom" type="button"><svg viewBox="0 0 14 14" class="Icon Icon--remove" style="height:10px;width:10px;" width="10" height="10" aria-hidden="true" data-reactid="85"><title data-reactid="86"></title><g data-reactid="87"><path d="M8.486 7l5.208-5.207c.408-.408.405-1.072-.006-1.483-.413-.413-1.074-.413-1.482-.005L7 5.515 1.793.304C1.385-.103.72-.1.31.31-.103.724-.103 1.385.305 1.793L5.515 7l-5.21 5.207c-.407.408-.404 1.072.007 1.483.413.413 1.074.413 1.482.005L7 8.485l5.207 5.21c.408.407 1.072.404 1.483-.007.413-.413.413-1.074.005-1.482L8.485 7z"></path></g></svg></button>
+					</div>
+					<div class="l-clist">
+						<div class="l-clist-toux"><img src="image/toux3.jpg" width="24" height="24">
+							林国宇<span>,从硅谷到北漂，前审计师，留美6年</span>
+							
+						</div>
+						<div class="l-clist-content">
+							<div class="lcc-h2"><h2>美国汽车旅馆老板偷窥客人XX30年，看到的却是最可悲的人性</h2></div>
+							<div class="l-clist-img"><img src="image/8.jpg" width="190" height="85"></div>
+							<div class="img-text"><span>Photo From Th New Yorker 人们正似乎极为迫切地渴望自己的私生活被暴露在众目睽睽之下——Facebook、Instagram、朋友圈甚至到“直播软件”。人们在社交网络上直播自己的兴趣爱好，甚至…</span>
+								<button>阅读全文<svg viewBox="0 0 10 6" class="Icon ContentItem-arrowIcon Icon--arrow" width="10" height="16" aria-hidden="true" style="height: 16px; width: 10px;"><title></title><g><path d="M8.716.217L5.002 4 1.285.218C.99-.072.514-.072.22.218c-.294.29-.294.76 0 1.052l4.25 4.512c.292.29.77.29 1.063 0L9.78 1.27c.293-.29.293-.76 0-1.052-.295-.29-.77-.29-1.063 0z"></path></g></svg></button>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="crl-footer">
+						<button class="f-zan">
+							<svg viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg" class="Icon Icon--like" style="height:16px;width:13px;" width="13" height="16" aria-hidden="true"><title></title><g data-reactid="149"><path d="M.718 7.024c-.718 0-.718.63-.718.63l.996 9.693c0 .703.718.65.718.65h1.45c.916 0 .847-.65.847-.65V7.793c-.09-.88-.853-.79-.846-.79l-2.446.02zm11.727-.05S13.2 5.396 13.6 2.89C13.765.03 11.55-.6 10.565.53c-1.014 1.232 0 2.056-4.45 5.83C5.336 6.965 5 8.01 5 8.997v6.998c-.016 1.104.49 2 1.99 2h7.586c2.097 0 2.86-1.416 2.86-1.416s2.178-5.402 2.346-5.91c1.047-3.516-1.95-3.704-1.95-3.704l-5.387.007z"></path></g></svg>
+							16K
+						</button>
+                        <a href=""><i class="cf-icon1"></i>关注问题</a>
+                        <a href=""><i class="cf-icon2"></i>1377条评论</a>
+                        <a href="">·作者保留权利</a>
+                        <button id="hiddenC"><i class="cf-icon3"></i>收起</button>
+                    </div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="r-bq">
+					<ul>
+						<li>
+						    <a href="">
+								<span><svg class="Zi Zi--Live" fill="currentColor" viewBox="0 0 24 24" width="24" height="24" data-reactid="991"><path d="M13.693 10.354l1.634-7.542c.195-.901-.16-1.083-.798-.39l-9.18 9.97c-.638.693-.377 1.254.582 1.254h5.376l-1.634 7.542c-.195.901.16 1.083.798.39l9.18-9.97c.638-.693.377-1.254-.582-1.254h-5.376z" data-reactid="992"></path></svg></span>
+								<span class="bq-text">Live</span>
+						    </a>
+					    </li>
+						<li>
+							<a href="">
+							<span class="shu"><svg class="Zi Zi--Ebook" fill="currentColor" viewBox="0 0 24 24" width="24" height="24" data-reactid="997"><path d="M16 17.649V2.931a.921.921 0 0 0-.045-.283.943.943 0 0 0-1.182-.604L4.655 5.235A.932.932 0 0 0 4 6.122v14.947c0 .514.421.931.941.931H19.06c.52 0 .941-.417.941-.93V7.292a.936.936 0 0 0-.941-.931h-.773v12.834a.934.934 0 0 1-.83.924L6.464 21.416c-.02.002 2.94-.958 8.883-2.881a.932.932 0 0 0 .653-.886z" fill-rule="evenodd" data-reactid="998"></path></svg></span>
+							<span class="bq-text">书店</span>
+							</a>
+						</li>
+						<li><a href="">
+							<span class="yuanzhuo" data-reactid="1002"><svg class="Zi Zi--Org" fill="currentColor" viewBox="0 0 24 24" width="24" height="24" data-reactid="1003"><path d="M10.786 8.41a8.938 8.938 0 0 0-3.968-2.528c-.305-1.719.814-3.337 2.442-3.741 1.221-.405 2.646.101 3.46 1.011 1.045 1.38.915 3.64.814 4.348-.102 1.315-1.221 3.034-1.323 3.135-.305-.809-.814-1.517-1.425-2.225zm-2.442 2.832c-1.526.202-3.052 1.01-4.171 2.123-1.12-.404-1.934-1.314-2.137-2.427-.316-2.427 1.526-3.64 2.849-3.842 1.628-.371 2.849.505 4.07 1.415 1.146 1.012 2.035 2.63 2.035 2.73-.916-.202-1.832-.1-2.646 0zm4.986.303c.509-.607.931-1.586 1.12-2.225.318-1.039.61-3.134.203-4.651 1.323-1.011 3.154-1.011 4.477.303 1.235 1.146 1.017 2.933.814 3.438-.663 1.581-1.933 2.326-3.256 2.832-1.221.404-3.256.303-3.358.303zm-2.645 1.011c-.51.607-.916 1.416-1.221 2.326-.407 1.314-.643 3.06-.102 4.55-1.323 1.011-3.256 1.011-4.477-.202-1.198-1.124-1.018-2.932-.814-3.438.599-1.605 1.933-2.326 3.256-2.831.916-.304 3.256-.405 3.358-.405zm9.259-1.82c1.017.404 1.933 1.315 2.035 2.427.233 2.57-1.526 3.64-2.849 3.842-1.526 0-2.85-.505-4.07-1.415-1.018-.81-2.035-2.528-2.035-2.63.916.203 1.831.102 2.645 0 1.628-.404 3.053-1.112 4.274-2.224zm-6.716 4.854c1.065 1.08 2.442 2.022 4.07 2.528.306 1.719-.814 3.235-2.442 3.741-1.22.405-2.645-.101-3.46-1.011-1.1-1.481-1.017-3.54-.915-4.247.102-1.315 1.221-3.034 1.323-3.135.305.708.721 1.44 1.424 2.124z" data-reactid="1004"></path></svg></span>
+							<span class="bq-text">圆桌</span></a>
+						</li>	
+						<li><a href="">
+							<span class="zhuanlan" data-reactid="1008"><svg class="Zi Zi--Edit" fill="currentColor" viewBox="0 0 24 24" width="24" height="24" data-reactid="1009"><path d="M4.076 16.966a4.19 4.19 0 0 1 1.05-1.76l8.568-8.569a.524.524 0 0 1 .741 0l2.928 2.927a.524.524 0 0 1 0 .74l-8.568 8.57c-.49.49-1.096.852-1.761 1.051l-3.528 1.058a.394.394 0 0 1-.49-.488l1.06-3.53zM20.558 4.83c.59.59.59 1.546 0 2.136l-1.693 1.692a.503.503 0 0 1-.712 0l-2.812-2.812a.504.504 0 0 1 0-.712l1.693-1.693a1.51 1.51 0 0 1 2.135 0l1.389 1.389z" data-reactid="1010"></path></svg></span>
+							<span class="bq-text">专栏</span></a>
+						</li>
+							
+						<li><a href="">
+							<span class="Button Button--plain" href="/zhi" target="_blank" title="付费咨询" style="color:#5478f0;" type="button" data-reactid="1013"><span class="TopstorySideBar-categoryIcon" data-reactid="1014"><svg class="Zi Zi--Infinity" fill="currentColor" viewBox="0 0 24 24" width="24" height="24" data-reactid="1015"><path d="M11.267 10.188h-2.69a.26.26 0 0 0-.261.26v.508c0 .149.117.26.262.26h2.896v1.54H8.578a.26.26 0 0 0-.262.259v.508c0 .15.117.26.262.26h2.896v2.31c0 .139.119.257.265.257h.522a.258.258 0 0 0 .265-.257v-2.31h2.896a.26.26 0 0 0 .262-.26v-.508a.257.257 0 0 0-.262-.26h-2.896v-1.54h2.896a.26.26 0 0 0 .262-.26v-.507a.257.257 0 0 0-.262-.26h-2.69l2.51-2.636a.26.26 0 0 0-.004-.366l-.423-.413a.253.253 0 0 0-.36.01L12 9.418 9.545 6.784a.248.248 0 0 0-.36-.011l-.423.413a.264.264 0 0 0-.004.366l2.509 2.636zM12 19.973c-1.101 0-2.16-.15-3.152-.43-.532.18-5.27 2.177-4.743 1.179.527-.998 1.58-2.746.806-3.25C3.11 15.936 2 13.822 2 11.486 2 6.8 6.477 3 12 3s10 3.8 10 8.487-4.477 8.486-10 8.486z" data-reactid="1016"></path></svg></span></span>
+							<span class="bq-text">付费咨询</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="r-list">
+					<ul><li class="TopstorySideBar-navItem"><a class="Button TopstorySideBar-navLink Button--plain" href="/collections" target="_blank" type="button" data-reactid="1038"><svg class="Zi Zi--Star TopstorySideBar-navIcon" fill="currentColor" viewBox="0 0 24 24" width="18" height="18" data-reactid="1039"><path d="M5.515 19.64l.918-5.355-3.89-3.792c-.926-.902-.639-1.784.64-1.97L8.56 7.74l2.404-4.871c.572-1.16 1.5-1.16 2.072 0L15.44 7.74l5.377.782c1.28.186 1.566 1.068.64 1.97l-3.89 3.793.918 5.354c.219 1.274-.532 1.82-1.676 1.218L12 18.33l-4.808 2.528c-1.145.602-1.896.056-1.677-1.218z" fill-rule="evenodd" data-reactid="1040"></path></svg><span class="TopstorySideBar-navText" data-reactid="1041">我的收藏</span></a></li><li class="TopstorySideBar-navItem TopstorySideBar-questionListItem" data-reactid="1042"><a class="Button TopstorySideBar-navLink Button--plain" target="_blank" type="button" data-reactid="1043" href="/people/wo-bu-shi-wu-a-ge-35/following/questions"><svg class="Zi Zi--HelpBubble TopstorySideBar-navIcon" fill="currentColor" viewBox="0 0 24 24" width="18" height="18" data-reactid="1044"><path d="M5.74 4h12.52c.961 0 1.74.775 1.74 1.73V16.27c0 .955-.779 1.73-1.74 1.73h-3.825l-1.658 2.044a1 1 0 0 1-1.554 0l-1.658-2.044H5.74C4.78 18 4 17.224 4 16.27V5.73C4 4.775 4.778 4 5.74 4zM12 16a.976.976 0 0 0 .705-.287.951.951 0 0 0 .295-.712.954.954 0 0 0-.295-.714A.976.976 0 0 0 12 14a.962.962 0 0 0-.705.295A.961.961 0 0 0 11 15c0 .284.098.522.295.713A.975.975 0 0 0 12 16zm1.278-4.924a36.81 36.81 0 0 0 1.023-.975c.19-.193.354-.422.492-.688.138-.266.207-.575.207-.928 0-.448-.12-.864-.363-1.246a2.517 2.517 0 0 0-1.029-.906C13.164 6.111 12.652 6 12.072 6c-.624 0-1.17.133-1.638.399-.468.265-.824.6-1.068 1.005-.244.405-.366.804-.366 1.2 0 .19.077.368.231.531a.747.747 0 0 0 .567.246c.38 0 .638-.234.774-.703.144-.449.32-.788.528-1.019.208-.23.532-.345.972-.345.376 0 .683.114.921.342.238.229.357.51.357.841 0 .17-.039.328-.117.473a1.782 1.782 0 0 1-.288.396c-.114.118-.3.294-.555.526a9.71 9.71 0 0 0-.696.688c-.172.194-.31.418-.414.673a2.391 2.391 0 0 0-.156.906c0 .278.071.488.213.63a.716.716 0 0 0 .525.211c.4 0 .638-.216.714-.648.044-.203.077-.345.099-.426.022-.081.053-.162.093-.243.04-.081.101-.17.183-.268.082-.098.191-.21.327-.34z" fill-rule="evenodd" data-reactid="1045"></path></svg><span class="TopstorySideBar-navText" data-reactid="1046">我关注的问题</span></a></li><li class="TopstorySideBar-navItem TopstorySideBar-inviteItem" data-reactid="1047"><a class="Button TopstorySideBar-navLink Button--plain" href="/question/invited" target="_blank" type="button" data-reactid="1048"><svg class="Zi Zi--Invite TopstorySideBar-navIcon" fill="currentColor" viewBox="0 0 24 24" width="18" height="18" data-reactid="1049"><path d="M4 10V8a1 1 0 1 1 2 0v2h2a1 1 0 0 1 0 2H6v2a1 1 0 0 1-2 0v-2H2a1 1 0 0 1 0-2h2zm10.455 2c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-7 6c0-2.66 4.845-4 7.272-4C17.155 14 22 15.34 22 18v1.375c0 .345-.28.625-.625.625H8.08a.625.625 0 0 1-.625-.625V18z" fill-rule="evenodd" data-reactid="1050"></path></svg><span class="TopstorySideBar-navText" data-reactid="1051">我的邀请</span></a></li><li class="TopstorySideBar-navItem TopstorySideBar-serviceItem" data-reactid="1052"><a class="Button TopstorySideBar-navLink Button--plain" href="/community" target="_blank" type="button" data-reactid="1053"><svg class="Zi Zi--Community TopstorySideBar-navIcon" fill="currentColor" viewBox="0 0 24 24" width="18" height="18" data-reactid="1054"><path d="M5.74 4h12.52c.961 0 1.74.775 1.74 1.73V16.27c0 .955-.779 1.73-1.74 1.73h-3.825l-1.658 2.044a1 1 0 0 1-1.554 0l-1.658-2.044H5.74C4.78 18 4 17.224 4 16.27V5.73C4 4.775 4.778 4 5.74 4zM7 8.98c0 .554.449.996 1.003.996h4.994A.992.992 0 0 0 14 8.981a.997.997 0 0 0-1.003-.995H8.003A.992.992 0 0 0 7 8.98zm0 4c0 .554.446.996.995.996h8.01a.993.993 0 0 0 .995-.995.993.993 0 0 0-.995-.995h-8.01A.993.993 0 0 0 7 12.98z" fill-rule="evenodd" data-reactid="1055"></path></svg><span class="TopstorySideBar-navText" data-reactid="1056">社区服务中心</span></a></li><li class="TopstorySideBar-navItem TopstorySideBar-copyrightItem" data-reactid="1057"><a class="Button TopstorySideBar-navLink Button--plain" href="/copyright" target="_blank" type="button" data-reactid="1058"><svg class="Zi Zi--Copyright TopstorySideBar-navIcon" fill="currentColor" viewBox="0 0 24 24" width="18" height="18" data-reactid="1059"><path d="M16.517 15.815a5.871 5.871 0 0 1-4.481 2.078 5.865 5.865 0 0 1-5.859-5.857 5.865 5.865 0 0 1 5.859-5.859c1.63 0 3.204.7 4.319 1.919.085.093.24.432.209.797a1.086 1.086 0 0 1-.436.779c-.248.193-.516.29-.797.29-.402 0-.7-.198-.814-.314A3.473 3.473 0 0 0 12 8.575a3.464 3.464 0 0 0-3.46 3.461 3.464 3.464 0 0 0 3.46 3.46 3.63 3.63 0 0 0 2.654-1.181c.136-.152.458-.306.806-.306.274 0 .542.095.773.274.35.269.45.588.473.809.032.308-.072.585-.188.723m4.686-7.699C20.67 6.883 19.96 5.82 19.07 4.929c-.891-.89-1.954-1.601-3.188-2.133A9.728 9.728 0 0 0 12 2a9.733 9.733 0 0 0-3.883.796c-1.234.532-2.297 1.243-3.186 2.133-.891.891-1.602 1.954-2.134 3.187A9.713 9.713 0 0 0 2 12a9.752 9.752 0 0 0 .797 3.883c.531 1.233 1.242 2.296 2.134 3.186.89.891 1.953 1.602 3.186 2.134A9.725 9.725 0 0 0 12 22a9.72 9.72 0 0 0 3.883-.797c1.233-.532 2.296-1.243 3.188-2.134.89-.89 1.601-1.953 2.132-3.186A9.73 9.73 0 0 0 22 12a9.69 9.69 0 0 0-.797-3.884" fill-rule="evenodd" data-reactid="1060"></path></svg><span class="TopstorySideBar-navText" data-reactid="1061">版权服务中心</span></a></li><li class="TopstorySideBar-navItem TopstorySideBar-publicEditItem" data-reactid="1062"><a class="Button TopstorySideBar-navLink Button--plain" href="/watch" target="_blank" type="button" data-reactid="1063"><svg class="Zi Zi--EditRounded TopstorySideBar-navIcon" fill="currentColor" viewBox="0 0 24 24" width="18" height="18" data-reactid="1064"><path d="M16.886 3A4.114 4.114 0 0 1 21 7.114v9.772A4.114 4.114 0 0 1 16.886 21H7.114A4.114 4.114 0 0 1 3 16.886V7.114A4.114 4.114 0 0 1 7.114 3h9.772zM7.542 14.793l-.595 1.985a.22.22 0 0 0 .275.275l1.984-.595a2.36 2.36 0 0 0 .991-.592l4.82-4.82a.295.295 0 0 0 0-.416L13.37 8.983a.295.295 0 0 0-.417 0l-4.82 4.82c-.275.277-.478.617-.59.99zm9.272-6.826l-.781-.78a.849.849 0 0 0-1.202 0l-.952.951c-.11.11-.11.29 0 .4l1.582 1.583a.283.283 0 0 0 .4 0l.953-.952a.85.85 0 0 0 0-1.202z" data-reactid="1065"></path></svg><span class="TopstorySideBar-navText" data-reactid="1066">公共编辑动态</span></a></li></ul>
+				</div>
+
+				<footer class="f-footer"><a class="Footer-item" target="_blank" href="//liukanshan.zhihu.com/">刘看山</a><span class="Footer-dot"></span><a class="Footer-item" target="_blank" href="/question/19581624">知乎指南</a><span class="Footer-dot"></span><a class="Footer-item" target="_blank" href="/terms">知乎协议</a><span class="Footer-dot"></span><a class="Footer-item" target="_blank" href="/app">应用</a><span class="Footer-dot"></span><a class="Footer-item" target="_blank" href="/careers">工作</a><br><a class="Footer-item" target="_blank" href="https://zhuanlan.zhihu.com/p/28561671">侵权举报</a><span class="Footer-dot"></span><a class="Footer-item" target="_blank" href="http://www.12377.cn">网上有害信息举报专区</a><br><span class="Footer-item">违法和不良信息举报：010-82716601</span><br><a class="Footer-item" target="_blank" href="/jubao">儿童色情信息举报专区</a><br><a class="Footer-item" target="_blank" href="/contact">联系我们</a><span> © 2018 知乎</span></footer>
+			</div>
+		</div>
+	</div>
+	<div class="CornerButtons"><div class="CornerAnimayedFlex1"><button class="Buttony CornerButton Button--plain" data-tooltip="建议反馈" data-tooltip-position="left" aria-label="建议反馈" type="button"><svg class="Zi Zi--Feedback" title="建议反馈" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M19.99 6.99L18 5s-1-1-2-1H8C7 4 6 5 6 5L4 7S3 8 3 9v9s0 2 2.002 2H19c2 0 2-2 2-2V9c0-1-1.01-2.01-1.01-2.01zM16.5 5.5L19 8H5l2.5-2.5h9zm-2 5.5s.5 0 .5.5-.5.5-.5.5h-5s-.5 0-.5-.5.5-.5.5-.5h5z"></path></svg></button></div><div class="CornerAnimayedFlex"><button class="Buttony CornerButton Button--plain" data-tooltip="回到顶部" data-tooltip-position="left" aria-label="回到顶部" type="button"><svg class="Zi Zi--BackToTop" title="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path></svg></button></div></div>
+</body>
+
+<script type="text/javascript">
+	function xiala1(){
+		$('.Icon--news').click(function(){
+			$('.ddxiala').css('display','block');
+		})
+		};
+	function hidexiala1(){
+		$(document).click(function(){
+			if($(".ddxiala").css('display')=='block'){
+			$('.ddxiala').hide();
+		}
+		})
+		$(".Icon--news").click(function(event){
+   			event.stopPropagation();
+		})
+		$(".ddxiala").click(function(event){
+   			event.stopPropagation();
+		})
+	}
+	function xiala2(){
+		$('.Icon--message').click(function(){
+			$('.x-xiaoxi').css('display','block');
+		})
+		};
+	function hidexiala2(){
+		$(document).click(function(){
+			if($(".x-xiaoxi").css('display')=='block'){
+			$('.x-xiaoxi').hide();
+		}
+		})
+		$(".Icon--message").click(function(event){
+   			event.stopPropagation();
+		})
+		$(".x-xiaoxi").click(function(event){
+   			event.stopPropagation();
+		})
+	}
+
+	function xiala3(){
+		$('.h-toux').click(function(){
+			$('.t-toux').css('display','block');
+		})
+		};
+	function hidexiala3(){
+		$(document).click(function(){
+			if($(".t-toux").css('display')=='block'){
+			$('.t-toux').hide();
+		}
+		})
+		$(".h-toux").click(function(event){
+   			event.stopPropagation();
+		})
+		$(".t-toux").click(function(event){
+   			event.stopPropagation();
+		})
+	}
+
+	function removecotent(){
+		$(".close-bq").click(function(event){
+   			$(".l-content").css('display','none');
+   		})
+	}
+
+	$(document).ready(function () {
+		xiala1();
+		xiala2();
+		xiala3();
+		hidexiala1();
+		hidexiala2();
+		hidexiala3();
+		removecotent();
+	});
+$(function(){
+	
+	    $(function(){
+	    $(window).scroll(function(){
+        if($(window).scrollTop() > 100){
+				$('.CornerAnimayedFlex').fadeIn(300);
+			}
+				else{$('.CornerAnimayedFlex').fadeOut(200);}
+			});
+	    $('.CornerAnimayedFlex').click(function(){
+				
+				$('body,html').animate({scrollTop:0},300);
+				return false;
+				
+				})
+		})
+	}) 
+</script>
+</body>
+</html>
